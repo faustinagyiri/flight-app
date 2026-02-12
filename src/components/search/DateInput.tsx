@@ -1,6 +1,5 @@
 import * as React from "react";
 import { Calendar } from "../ui/calendar";
-import DateRangePicker from "./DateRangePicker";
 
 import {
   Popover,
@@ -12,6 +11,24 @@ import { format } from "date-fns";
 
 export default function DateInput() {
   const [date, setDate] = React.useState<Date | undefined>();
+
+  
+  fetch("http://127.0.0.1:7242/ingest/5203c23d-9d68-411f-9f87-ec569814e16c", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      id: `log_${Date.now()}_date_input_render`,
+      timestamp: Date.now(),
+      runId: "initial",
+      hypothesisId: "H1_H2_H3",
+      location: "src/components/search/DateInput.tsx:18",
+      message: "DateInput rendered; checking how many calendars are shown",
+      data: {
+        hasRangePicker: true,
+        numberOfMonthsSingle: 2,
+      },
+    }),
+  }).catch(() => { });
 
   return (
     <Popover>
@@ -27,14 +44,13 @@ export default function DateInput() {
         </div>
       </PopoverTrigger>
 
-      <PopoverContent className="w-auto p-0" align="start">
+      <PopoverContent className="w-auto" align="start">
         <Calendar
           mode="single"
           selected={date}
           onSelect={setDate}
-          numberOfMonths={2}
         />
-        <DateRangePicker />
+
       </PopoverContent>
     </Popover>
   );

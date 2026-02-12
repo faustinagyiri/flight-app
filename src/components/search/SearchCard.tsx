@@ -1,3 +1,4 @@
+"use client"
 import {
   MapPin,
   ArrowLeftRight,
@@ -7,10 +8,9 @@ import {
 } from "lucide-react";
 import FromInput from "./FromInput";
 import ToInput from "./ToInput";
-import DateRangePicker from "./DateRangePicker";
 import TravelersInput from "./TravelersInput";
 import DateInput from "./DateInput";
-import React from "react";
+
 import { useNavigate } from "react-router-dom";
 
 
@@ -75,7 +75,7 @@ export default function SearchCard() {
         </div>
 
         {/*  Main Search Bar  */}
-        <div className="mt-6 flex items-center rounded-full bg-gray-100 px-3 py-2">
+        <div className="mt-6 flex items-center bg-gray-100 px-3 py-2">
           {/* FROM */}
           <FromInput />
 
@@ -110,11 +110,10 @@ export default function SearchCard() {
           </div>
 
           {/* SEARCH BUTTON */}
-          <button 
+          <button
             onClick={handleSearch}
             className="ml-2 flex h-12 w-12 items-center justify-center rounded-full bg-blue-600 text-white hover:bg-blue-700"
-          >
-            
+          > 
             <Search className="h-5 w-5" />
           </button>
         </div>

@@ -11,7 +11,7 @@ interface Location {
   country: string;
   code: string;
 }
-
+// Data
 const LOCATIONS: Location[] = [
   { city: "New York", country: "United States", code: "JFK" },
   { city: "London", country: "United Kingdom", code: "LHR" },
@@ -29,7 +29,7 @@ export default function FromInput() {
       <PopoverTrigger asChild>
         <div
           onMouseEnter={() => setOpen(true)}
-          className="flex flex-1 cursor-pointer flex-col gap-1 rounded-xl bg-white px-4 py-3 hover:bg-gray-50 md:rounded-none"
+          className="flex flex-1 cursor-pointer flex-col gap-1  bg-white px-4 py-3 hover:bg-gray-50 md:rounded-none"
         >
           <span className="text-xs font-medium text-gray-500">From</span>
           <div className="flex items-center gap-2">

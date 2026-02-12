@@ -1,21 +1,18 @@
-import * as React from "react";
-import { Calendar } from "../ui/calendar";
-import type { DateRange } from "react-day-picker";
+"use client"
 
-export default function DateRangePicker() {
-  const [dateRange, setDateRange] = React.useState<DateRange | undefined>({
-    from: new Date(2025, 5, 12),
-    to: new Date(2025, 6, 15),
-  });
+import * as React from "react"
+import { Calendar } from "@/components/ui/calendar"
+
+export function CalendarDemo() {
+  const [date, setDate] = React.useState<Date | undefined>(new Date())
 
   return (
     <Calendar
-      mode="range"
-      defaultMonth={dateRange?.from}
-      selected={dateRange}
-      onSelect={setDateRange}
-      numberOfMonths={2}
-      className="rounded-lg border shadow-sm"
+      mode="single"
+      selected={date}
+      onSelect={setDate}
+      className="rounded-lg border"
+      captionLayout="dropdown"
     />
-  );
+  )
 }

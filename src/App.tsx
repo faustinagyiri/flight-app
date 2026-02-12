@@ -9,7 +9,6 @@ function App() {
   return (
     <BrowserRouter>
       <Navbar />
-
       <Routes>
         <Route path="/" element={<HeroSection />} />
         <Route path="/results" element={<SearchResultsPage />} />
@@ -19,7 +18,6 @@ function App() {
     </BrowserRouter>
   );
 }
-
 export default App;
 
 
